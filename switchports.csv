@@ -1,0 +1,9 @@
+hostname,port_category,interface g1/0/23-24,interface g1/0/1-22,interface g1/0/23,interface g1/0/24
+ACCESS-SW1,access_data,,10,,
+ACCESS-SW1,access_voice,,20,,
+ACCESS-SW1,trunk,"10,20,30",,,
+ACCESS-SW1,etherchannel,,,1,1
+ACCESS-SW2,access_data,,30,,
+ACCESS-SW2,access_voice,,20,,
+ACCESS-SW2,trunk,"10,20,30",,,
+ACCESS-SW2,etherchannel,,,1,1

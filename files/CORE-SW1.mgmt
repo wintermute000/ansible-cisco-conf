@@ -1,0 +1,27 @@
+
+username testuser secret testpassword
+enable secret testenable
+
+ip domain-name test.com
+no ip domain-lookup
+
+timezone AEST 10 0
+
+login on-failure log
+login on-success log
+!
+logging trap notifications
+logging source-interface vlan2
+logging host 10.255.255.1
+
+	logging host 
+
+snmp-server community teststring RO
+snmp-server trap-source vlan2
+snmp-server contact bender@planetexpress.com
+
+snmp-server host 10.255.255.1 string4
+
+snmp-server host  
+
+snmp ifmib ifindex persist
