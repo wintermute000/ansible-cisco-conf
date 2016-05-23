@@ -5,4 +5,4 @@
   connection: local
 
   roles:
-    - switchport-unified
+    - switchports

@@ -1,7 +1,7 @@
+
 {% for key, value in vlans.iteritems() %}
 vlan {{ key }}
     name {{ value }}
-
 {% endfor %}
 
 spanning-tree mode rapid-pvst

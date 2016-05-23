@@ -1,13 +1,21 @@
-hostname,port_category,g1/0/23-24,g1/0/1-12,g1/0/12-22,g1/0/23,g1/0/24,g1/0/1-22
-ACCESS-SW1,access_data,,10,30,,,
-ACCESS-SW1,access_voice,,40,40,,,
-ACCESS-SW1,trunk,"10,20,30,40",,,,,
-ACCESS-SW1,etherchannel,,,,1,1,
-ACCESS-SW2,access_data,,20,30,,,
-ACCESS-SW2,access_voice,,40,40,,,
-ACCESS-SW2,trunk,"10,20,30,40",,,,,
-ACCESS-SW2,etherchannel,,,,1,1,
-ACCESS-SW3,access_data,,,,,,10
-ACCESS-SW3,access_voice,,,,,,40
-ACCESS-SW3,trunk,"10,20,30,40",,,,,
-ACCESS-SW3,etherchannel,,,,1,1,
+hostname,port_category,Po1,Po2,Po3,g1/0/1-11,g1/0/12-22,g1/0/23,g1/0/24,g1/0/1-22
+ACCESS-SW1,description,Uplink to core,,,User VLAN 10 + Voice,User VLAN 30 + Voice,Port-channel 1 member,Port-channel 1 member,
+ACCESS-SW1,access_data,,,,10,30,,,
+ACCESS-SW1,access_voice,,,,40,40,,,
+ACCESS-SW1,trunk,"10,20,30,40",,,,,,,
+ACCESS-SW1,etherchannel,,,,,,1,1,
+ACCESS-SW1,parameters,switchport trunk native vlan 999,,,spanning-tree portfast,spanning-tree portfast,"speed auto
+duplex auto","speed auto
+duplex auto",
+ACCESS-SW2,description,,Uplink to core,,User VLAN 10 + Voice,User VLAN 30 + Voice,Port-channel 2 member,Port-channel 2 member,
+ACCESS-SW2,access_data,,,,20,30,,,
+ACCESS-SW2,access_voice,,,,40,40,,,
+ACCESS-SW2,trunk,,"10,20,30,40",,,,,,
+ACCESS-SW2,etherchannel,,,,,,2,2,
+ACCESS-SW2,parameters,,switchport trunk native vlan 999,,spanning-tree portfast,spanning-tree portfast,,,
+ACCESS-SW3,description,,,Uplink to core,,,Port-channel 3 member,Port-channel 3 member,User VLAN 10 + Voice
+ACCESS-SW3,access_data,,,,,,,,10
+ACCESS-SW3,access_voice,,,,,,,,40
+ACCESS-SW3,trunk,,,"10,20,30,40",,,,,
+ACCESS-SW3,etherchannel,,,,,,3,3,
+ACCESS-SW3,parameters,,,switchport trunk native vlan 999,spanning-tree portfast,spanning-tree portfast,,,

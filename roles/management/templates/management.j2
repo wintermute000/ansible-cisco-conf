@@ -10,54 +10,32 @@ timezone {{ timezone }}
 
 login on-failure log
 login on-success log
-!
+
 logging trap notifications
 logging source-interface {{ mgt_source_interface }}
 logging host {{ syslog_server_1 }}
-
 {% if syslog_server_2 is defined %}
 logging host {{ syslog_server_2 }}
-{% else %}	
-
 {% endif %}
-
 {% if syslog_server_3 is defined %}
 logging host {{ syslog_server_3 }}
-{% else %}
-
 {% endif %}
 
 snmp-server community {{ snmp_ro_community }} RO
-
 {% if snmp_rw_community is defined %}
 snmp-server community {{ snmp_rw_community }} RW
-{% else %}
-
 {% endif %}
-
-
 snmp-server trap-source {{ mgt_source_interface }}
 snmp-server contact {{ snmp_contact }}
-
 snmp-server host {{ snmp_server_1_ip }} {{ snmp_server_1_string }}
-
 {% if snmp_server_2_ip is defined %}
 snmp-server host {{ snmp_server_2_ip }} {{ snmp_server_2_string }}
-{% else %}
-
 {% endif %}
-
 {% if snmp_server_3_ip is defined %}
 snmp-server host {{ snmp_server_3_ip }} {{ snmp_server_3_string }}
-{% else %}
-
 {% endif %}
-
 snmp ifmib ifindex persist
-
 
 {% if ip_default_gw is defined %}
 ip default-gateway {{ ip_default_gw }}
-{% else %}
-
 {% endif %}
