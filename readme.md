@@ -25,6 +25,7 @@ Each template can be easily expanded or edited for your custom requirements (e.g
 
 TO DO
 - custom spanning tree module instead of shoving the same template across all devices via vlan role
+- sort the dictionary outputs
 - attempt to merge into one play - not sure if possible with dynamic inventory, or will be too much work to merge dictionaries correctly
 - expand functionality for routers and/or L3 switches
 - NXOS syntax and VPCs
