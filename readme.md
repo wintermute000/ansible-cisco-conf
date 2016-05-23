@@ -27,6 +27,11 @@ TO DO
 - custom spanning tree module instead of shoving the same template across all devices via vlan role
 - attempt to merge into one play - not sure if possible with dynamic inventory, or will be too much work to merge dictionaries correctly
 - expand functionality for routers and/or L3 switches
+- NXOS syntax and VPCs
+- paramiko/netmiko the damned thing directly into mgt IP oh how I hate expect scripting
+- wait for Cisco to get off their behind and obsolete this with APIC-EM finally
+
+
 
 
 
