@@ -74,61 +74,6 @@ ACCESS-SW2,data-10,data-20,data-30,voice
 ACCESS-SW3,data-10,data-20,data-30,voice
 
 
-
-
-### RUN ANSIBLE VIA SHELL SCRIPT
-ansible@ubuntu-test:~/ansible-cisco-conf$ ./generate-configs.sh 
-
-
-PLAY [Generate management configuration files] ******************************** 
-
-
-TASK: [vlans | Generate VLAN configuration] *********************************** 
-changed: [ACCESS-SW2] => {"changed": true, "dest": "./files/ACCESS-SW2.vlans", "gid": 1001, "group": "ansible", "md5sum": "6ab6245f01d5f84ed105366724632c10", "mode": "0664", "owner": "ansible", "size": 208, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007267.61-153911396762400/source", "state": "file", "uid": 1001}
-changed: [ACCESS-SW3] => {"changed": true, "dest": "./files/ACCESS-SW3.vlans", "gid": 1001, "group": "ansible", "md5sum": "6ab6245f01d5f84ed105366724632c10", "mode": "0664", "owner": "ansible", "size": 208, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007267.6-4419110684860/source", "state": "file", "uid": 1001}
-changed: [ACCESS-SW1] => {"changed": true, "dest": "./files/ACCESS-SW1.vlans", "gid": 1001, "group": "ansible", "md5sum": "6ab6245f01d5f84ed105366724632c10", "mode": "0664", "owner": "ansible", "size": 208, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007267.6-208974451106398/source", "state": "file", "uid": 1001}
-
-
-PLAY RECAP ******************************************************************** 
-ACCESS-SW1                 : ok=1    changed=1    unreachable=0    failed=0   
-ACCESS-SW2                 : ok=1    changed=1    unreachable=0    failed=0   
-ACCESS-SW3                 : ok=1    changed=1    unreachable=0    failed=0   
-
-
-
-
-PLAY [Generate access switchports configuration files] ************************ 
-
-
-TASK: [switchports | Generate switch ports configuration] ********************* 
-changed: [ACCESS-SW2] => {"changed": true, "dest": "./files/ACCESS-SW2.switchports", "gid": 1001, "group": "ansible", "md5sum": "e763486a4359c554c5af4dd92480b088", "mode": "0664", "owner": "ansible", "size": 843, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007268.03-278131952123541/source", "state": "file", "uid": 1001}
-changed: [ACCESS-SW1] => {"changed": true, "dest": "./files/ACCESS-SW1.switchports", "gid": 1001, "group": "ansible", "md5sum": "5d9045031ea176dae84f569b19371c58", "mode": "0664", "owner": "ansible", "size": 897, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007268.02-280331391450933/source", "state": "file", "uid": 1001}
-changed: [ACCESS-SW3] => {"changed": true, "dest": "./files/ACCESS-SW3.switchports", "gid": 1001, "group": "ansible", "md5sum": "a15ec69de5b999f9feaccbf79980963e", "mode": "0664", "owner": "ansible", "size": 626, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007268.03-190959576835212/source", "state": "file", "uid": 1001}
-
-
-PLAY RECAP ******************************************************************** 
-ACCESS-SW1                 : ok=1    changed=1    unreachable=0    failed=0   
-ACCESS-SW2                 : ok=1    changed=1    unreachable=0    failed=0   
-ACCESS-SW3                 : ok=1    changed=1    unreachable=0    failed=0   
-
-
-
-
-PLAY [Generate management configuration files] ******************************** 
-
-
-TASK: [management | Generate management configuration] ************************ 
-changed: [ACCESS-SW3] => {"changed": true, "dest": "./files/ACCESS-SW3.mgmt", "gid": 1001, "group": "ansible", "md5sum": "843e979b2dee91022eba29847d2996f2", "mode": "0664", "owner": "ansible", "size": 516, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007268.49-154617469532748/source", "state": "file", "uid": 1001}
-changed: [ACCESS-SW1] => {"changed": true, "dest": "./files/ACCESS-SW1.mgmt", "gid": 1001, "group": "ansible", "md5sum": "5103228e29bd53f1305a36a53f322123", "mode": "0664", "owner": "ansible", "size": 547, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007268.47-72849816500810/source", "state": "file", "uid": 1001}
-changed: [ACCESS-SW2] => {"changed": true, "dest": "./files/ACCESS-SW2.mgmt", "gid": 1001, "group": "ansible", "md5sum": "c534f2b19f3f79a5fe8da5e5cc050781", "mode": "0664", "owner": "ansible", "size": 547, "src": "/home/ansible/.ansible/tmp/ansible-tmp-1464007268.48-185854201577063/source", "state": "file", "uid": 1001}
-
-
-PLAY RECAP ******************************************************************** 
-ACCESS-SW1                 : ok=1    changed=1    unreachable=0    failed=0   
-ACCESS-SW2                 : ok=1    changed=1    unreachable=0    failed=0   
-ACCESS-SW3                 : ok=1    changed=1    unreachable=0    failed=0   
-
-
 ### EXAMPLE OUTPUT
 
 ansible@ubuntu-test:~/ansible-cisco-conf$ cat ./files/ACCESS-SW1.config 
