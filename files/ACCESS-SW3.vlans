@@ -1,0 +1,13 @@
+
+vlan 10
+    name data-10
+vlan 30
+    name data-30
+vlan 20
+    name data-20
+vlan 40
+    name voice
+
+spanning-tree mode rapid-pvst
+spanning-tree portfast bpduguard default
+spanning-tree vlans 1-4094 pri 32768

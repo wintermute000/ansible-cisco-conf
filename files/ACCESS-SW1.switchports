@@ -1,0 +1,47 @@
+
+!!! ETHERCHANNEL MEMBERS
+interface range g1/0/24
+    description Port-channel 1 member
+    channel-group 1 mode active
+    speed auto
+duplex auto
+    no shut
+    
+interface range g1/0/23
+    description Port-channel 1 member
+    channel-group 1 mode active
+    speed auto
+duplex auto
+    no shut
+    
+
+
+!!! ACCESS PORTS
+interface range g1/0/12-22
+    description User VLAN 30 + Voice
+    switchport mode access
+    switchport access vlan 30
+    switchport voice vlan 40
+    spanning-tree portfast
+    no shut
+
+interface range g1/0/1-11
+    description User VLAN 10 + Voice
+    switchport mode access
+    switchport access vlan 10
+    switchport voice vlan 40
+    spanning-tree portfast
+    no shut
+
+
+
+!!! TRUNK PORTS
+interface range Po1
+    description Uplink to core
+    switchport mode trunk
+    switchport trunk allowed vlan add 10,20,30,40
+    switchport trunk native vlan 999
+    no shut
+
+
+
