@@ -1,0 +1,8 @@
+--- 
+- name: Generate access switchports configuration files
+  gather_facts: no
+  hosts: access_hosts
+  connection: local
+
+  roles:
+    - switchport-trunk

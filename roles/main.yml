@@ -1,4 +1,0 @@
---- 
-- name: "Generate management configuration"
-  template: "src=management.j2 dest=./files/{{hostname}}.mgmt"
-

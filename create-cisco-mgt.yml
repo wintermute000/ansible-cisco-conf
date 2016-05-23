@@ -1,9 +1,0 @@
---- 
-- name: Generate configuration files
-  gather_facts: no
-  hosts: group
-  connection: local
-
-  roles:
-    - management
-

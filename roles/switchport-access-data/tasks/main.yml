@@ -1,4 +1,0 @@
---- 
-- name: "Generate access data ports configuration"
-  template: "src=access-data.j2 dest=./files/{{hostname}}.accdata"
-

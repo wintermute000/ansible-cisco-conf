@@ -1,0 +1,4 @@
+hostname,group,username,password,enable,domain_name,ntp_server_1,ntp_server_2,syslog_server_1,syslog_server_2,syslog_trap_level,mgt_source_interface,snmp_contact,snmp_ro_community,snmp_server_1_ip,snmp_server_1_string,snmp_server_2_ip,snmp_server_2_string,timezone,ip_default_gw
+ACCESS-SW1,access_switches,testuser,testpassword,testenable,test.com,10.255.255.1,10.255.255.2,10.255.255.1,10.255.255.2,notifications,vlan2,bender@planetexpress.com,teststring,10.255.255.1,string1,10.255.255.2,string1,AEST 10 0,10.1.1.1
+ACCESS-SW2,access_switches,testuser,testpassword,testenable,test.com,10.255.255.1,10.255.255.2,10.255.255.1,10.255.255.2,notifications,vlan2,bender@planetexpress.com,teststring,10.255.255.1,string2,10.255.255.2,string2,AEST 10 0,10.1.1.1
+ACCESS-SW3,wan_routers,testuser,testpassword,testenable,test.com,10.255.255.1,10.255.255.2,10.255.255.1,,notifications,ge0/1,bender@planetexpress.com,teststring,10.255.255.1,string3,,,AEST 10 0,10.1.1.1

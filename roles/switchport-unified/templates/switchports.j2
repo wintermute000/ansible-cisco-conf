@@ -1,0 +1,26 @@
+!!! ACCESS DATA PORTS
+{% for key, value in access_ports.iteritems() %}
+interface range {{ key }}
+    switchport mode access
+    switchport access vlan {{ value }}
+    switchport spanning-tree portfast
+
+{% endfor %}
+
+!!! ACCESS VOICE PORTS
+{% for key, value in voice_ports.iteritems() %}
+interface range {{ key }}
+    switchport mode access
+    switchport voice vlan {{ value }}
+    switchport spanning-tree portfast
+
+{% endfor %}
+
+!!! TRUNK PORTS
+{% for key, value in trunk_ports.iteritems() %}
+interface range {{ key }}
+    switchport mode trunk
+    switchport trunk allowed vlan add {{ value }}
+
+{% endfor %}
+

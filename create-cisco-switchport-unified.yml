@@ -1,0 +1,8 @@
+--- 
+- name: Generate access switchports configuration files
+  gather_facts: no
+  hosts: group
+  connection: local
+
+  roles:
+    - switchport-unified

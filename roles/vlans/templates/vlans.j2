@@ -1,0 +1,9 @@
+{% for key, value in vlans.iteritems() %}
+vlan {{ key }}
+    name {{ value }}
+
+{% endfor %}
+
+spanning-tree mode rapid-pvst
+spanning-tree portfast bpduguard default
+spanning-tree vlans 1-4094 pri 32768

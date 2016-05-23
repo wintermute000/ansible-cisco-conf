@@ -1,0 +1,6 @@
+{% for key, value in trunk_ports.iteritems() %}
+interface range {{ key }}
+    switchport mode trunk
+    switchport trunk allowed vlan add {{ value }}
+
+{% endfor %}

@@ -1,0 +1,6 @@
+{% for key, value in access_ports.iteritems() %}
+interface range {{ key }}
+    switchport mode access
+    switchport access vlan {{ value }}
+    switchport spanning-tree portfast
+{% endfor %}

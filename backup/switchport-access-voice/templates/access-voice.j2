@@ -1,0 +1,6 @@
+{% for key, value in voice_ports.iteritems() %}
+interface range {{ key }}
+    switchport mode access
+    switchport voice vlan {{ value }}
+    switchport spanning-tree portfast
+{% endfor %}

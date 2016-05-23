@@ -1,0 +1,4 @@
+hostname,10,20,30,40
+ACCESS-SW1,data-10,data-20,data-30,voice
+ACCESS-SW2,data-10,data-20,data-30,voice
+ACCESS-SW3,data-10,data-20,data-30,voice
