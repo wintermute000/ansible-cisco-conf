@@ -17,7 +17,7 @@ The dyanmic inventory takes data from CSV files, this makes life much easier tha
 - create-cisco-vlans.yml, using the dynamic inventory file of vlans.py. This refers to the CSV file vlans.csv.
 
 Example CSV files are populated to illustrate the correct syntax. Management and VLANs are simple to understand, but Switchports can be 
-quite fiddly - the key is to have 5 rows for each device (access_data, access_voice, etherchannel, trunk, parameters and description). 
+quite fiddly - the key is to have 6 rows for each device (access_data, access_voice, etherchannel, trunk, parameters and description). 
 The categories are hard coded in the script so do not deviate from the naming.
 Note parameters can take /n carriage return entries if multiple custom configurations are required per port.
 
