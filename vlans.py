@@ -2,13 +2,9 @@
 
 import argparse
 import json
-import paramiko
-import subprocess
 import csv
 import sys
-import pprint
-from itertools import ifilterfalse
-from collections import defaultdict
+
 
 class Inventory(object):
 
