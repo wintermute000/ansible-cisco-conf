@@ -15,6 +15,7 @@ The dyanmic inventory takes data from CSV files, this makes life much easier tha
 - create-cisco-management.yml, using the dynamic inventory file of management.py. This refers to the CSV file management.csv.
 - create-cisco-switchports.yml, using the dynamic inventory file of switchports.py. This refers to the CSV file switchports.csv.
 - create-cisco-vlans.yml, using the dynamic inventory file of vlans.py. This refers to the CSV file vlans.csv.
+- ansible will call the inventory python scripts using the --list flag - if testing the python scripts, run with --list to see the JSON output
 
 Example CSV files are populated to illustrate the correct syntax. Management and VLANs are simple to understand, but Switchports can be 
 quite fiddly - the key is to have 6 rows for each device (access_data, access_voice, etherchannel, trunk, parameters and description). 
