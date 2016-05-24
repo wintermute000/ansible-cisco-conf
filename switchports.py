@@ -31,151 +31,40 @@ class switchports(object):
         h_description_var_total ={}
         h_parameters_var_total ={}
         h_ports_total ={}
+        h_cat = {"access_data": h_access_data_var_total,"access_voice": h_access_voice_var_total,"trunk": h_trunk_var_total,"etherchannel": h_etherchannel_var_total, "description": h_description_var_total, "parameters":h_parameters_var_total}
 
         for row in switchports_dict:
             h_type = row["port_category"]
+            h_hosts_raw.append(row["hostname"])
+            h_name = row["hostname"]
+            # delete variables not to be output to YAML
 
-            if h_type == "access_data":
-                h_hosts_raw.append(row["hostname"])
-                h_name = row["hostname"]
+            del row["hostname"]
+            del row["port_category"]
+            # delete null values
+            for k, v in row.items():
+                if v == '':
+                    del row[k]
 
-                # delete variables not to be output to YAML
-
-                del row["hostname"]
-                del row["port_category"]
-                # delete null values
-                for k, v in row.items():
-                    if v == '':
-                        del row[k]
-
-                row = {"access_ports": row}
-                var = {h_name : row}
-
-                h_access_data_var_total.update(var)
-
-            if h_type == "access_voice":
-                h_hosts_raw.append(row["hostname"])
-                h_name = row["hostname"]
-
-                # delete variables not to be output to YAML
-
-                del row["hostname"]
-                del row["port_category"]
-                # delete null values
-                for k, v in row.items():
-                    if v == '':
-                        del row[k]
-                row = {"voice_ports":  row}
-                var = {h_name : row}
-
-                h_access_voice_var_total.update(var)
-
-            if h_type == "trunk":
-                h_hosts_raw.append(row["hostname"])
-                h_name = row["hostname"]
-
-                # delete variables not to be output to YAML
-
-                del row["hostname"]
-                del row["port_category"]
-                # delete null values
-                for k, v in row.items():
-                    if v == '':
-                        del row[k]
-                row = {"trunk_ports":  row}
-                var = {h_name : row}
-                h_trunk_var_total.update(var)
-                
-            if h_type == "etherchannel":
-                h_hosts_raw.append(row["hostname"])
-                h_name = row["hostname"]
-
-                # delete variables not to be output to YAML
-
-                del row["hostname"]
-                del row["port_category"]
-                # delete null values
-                for k, v in row.items():
-                    if v == '':
-                        del row[k]
-                row = {"etherchannels":  row}
-                var = {h_name : row}
-                h_etherchannel_var_total.update(var)
-                
-            if h_type == "description":
-                h_hosts_raw.append(row["hostname"])
-                h_name = row["hostname"]
-
-                # delete variables not to be output to YAML
-
-                del row["hostname"]
-                del row["port_category"]
-                # delete null values
-                for k, v in row.items():
-                    if v == '':
-                        del row[k]
-                row = {"descriptions":  row}
-                var = {h_name : row}
-                h_description_var_total.update(var)
-                
-            if h_type == "parameters":
-                h_hosts_raw.append(row["hostname"])
-                h_name = row["hostname"]
-
-                # delete variables not to be output to YAML
-
-                del row["hostname"]
-                del row["port_category"]
-                # delete null values
-                for k, v in row.items():
-                    if v == '':
-                        del row[k]
-                row = {"parameters":  row}
-                var = {h_name : row}
-                h_parameters_var_total.update(var)
+            row = {h_type: row}
+            var = {h_name : row}
+            h_cat[h_type].update(var)
 
         # remove duplicates from list of hosts
         h_hosts = list(set(h_hosts_raw))
 
-
-
-
         # merge dictionaries
-        for k in h_access_data_var_total:
-            if k in h_ports_total:
-                h_ports_total[k].update(h_access_data_var_total[k])
-            else:
-                h_ports_total[k] = h_access_data_var_total[k]
 
-        for y in h_access_voice_var_total:
-            if y in h_ports_total:
-                h_ports_total[y].update(h_access_voice_var_total[y])
-            else:
-                h_ports_total[y] = h_access_voice_var_total[y]
+        h_list = [h_access_data_var_total, h_access_voice_var_total, h_trunk_var_total, h_etherchannel_var_total, h_description_var_total, h_parameters_var_total]
 
-        for z in h_trunk_var_total:
-            if z in h_ports_total:
-                h_ports_total[z].update(h_trunk_var_total[z])
-            else:
-                h_ports_total[z] = h_trunk_var_total[z]
-                
-        for a in h_etherchannel_var_total:
-            if a in h_ports_total:
-                h_ports_total[a].update(h_etherchannel_var_total[a])
-            else:
-                h_ports_total[a] = h_etherchannel_var_total[a]
-                
-        for b in h_description_var_total:
-            if b in h_ports_total:
-                h_ports_total[b].update(h_description_var_total[b])
-            else:
-                h_ports_total[b] = h_description_var_total[b]
-                
-        for c in h_parameters_var_total:
-            if c in h_ports_total:
-                h_ports_total[c].update(h_parameters_var_total[c])
-            else:
-                h_ports_total[c] = h_parameters_var_total[c]
+        n=0
+        while n<=(len(h_list)-1):
+            for k in h_list[n]:
+                if k in h_ports_total:
+                    h_ports_total[k].update(h_list[n][k])
+                else:
+                    h_ports_total[k] = h_list[n][k]
+            n=n+1
 
         return {
             "group": {
@@ -205,7 +94,6 @@ class switchports(object):
         # If no groups or vars are present, return an empty switchports.
         else:
             self.switchports = self.empty_switchports()
-
 
 if __name__ == '__main__':
     switchports()
