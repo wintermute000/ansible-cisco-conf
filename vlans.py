@@ -5,7 +5,6 @@ import json
 import csv
 import sys
 
-
 class Inventory(object):
 
     def read_cli_args(self):
@@ -45,10 +44,7 @@ class Inventory(object):
         # remove duplicates from list of hosts
         h_list = list(set(h_hosts_raw))
 
-
-
-
-        # Return YAML
+        # return stdout in ansible compliant JSON output
         return {
             "group": {
                 "hosts": h_list
@@ -75,6 +71,7 @@ class Inventory(object):
         elif self.args.host:
             # Not implemented, since we return _meta info `--list`.
             self.inventory = self.empty_inventory()
+
         # If no groups or vars are present, return an empty inventory.
         else:
             self.inventory = self.empty_inventory()
@@ -83,4 +80,34 @@ class Inventory(object):
 if __name__ == '__main__':
     Inventory()
 
-
+# EXAMPLE JSON OUTPUT IN ANSIBLE INVENTORY FORMAT
+# {"group": {
+#     "hosts": ["ACCESS-SW1", "ACCESS-SW3", "ACCESS-SW2"]
+# }, "_meta": {
+#     "hostvars": {
+#         "ACCESS-SW1": {
+#             "vlans": {
+#                 "10": "data-10",
+#                 "20": "data-20",
+#                 "40": "voice",
+#                 "30": "data-30"
+#             }
+#         },
+#         "ACCESS-SW3": {
+#             "vlans": {
+#                 "10": "data-10",
+#                 "20": "data-20",
+#                 "40": "voice",
+#                 "30": "data-30"
+#             }
+#         },
+#         "ACCESS-SW2": {
+#             "vlans": {
+#                 "10": "data-10",
+#                 "20": "data-20",
+#                 "40": "voice",
+#                 "30": "data-30"
+#             }
+#         }
+#     }
+# }}
