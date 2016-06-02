@@ -1,8 +1,11 @@
 README FOR ansible-cisco-conf
 
 This builds automated configuration templates for Cisco L2 switches in IOS/IOS-XE syntax.
+
 It requires a working python and ansible environment.
+
 If any errors are encountered executing, check line endings and convert to unix if necessary (suggest dos2unix)
+
 If any python errors are encountered executing, pip-install the missing python modules.
 
 Run generate.sh to execute. 
