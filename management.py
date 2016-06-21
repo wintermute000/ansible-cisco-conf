@@ -68,7 +68,7 @@ class Inventory(object):
 if __name__ == '__main__':
     Inventory()
 
-
+#
 # EXAMPLE JSON OUTPUT IN ANSIBLE INVENTORY FORMAT
 # {"group": {
 #     "hosts": ["ACCESS-SW1", "ACCESS-SW2", "ACCESS-SW3"]
